@@ -78,6 +78,42 @@ public class PrefixProductListIterator implements java.util.Iterator<Integer> {
             System.err.println(e);
         System.exit(1);
         }
+
+        // create and populate three list, LinkedList, Vector, and Stack
+        java.util.Random r = new java.util.Random();
+        List<Integer> lList = new LinkedList<Integer>();
+        List<Integer> vList = new Vector<Integer>();
+        List<Integer> sList = new Stack<Integer>();
+        for (int i = 0; i < n; i++) {
+            int rNum = r.nextInt(range) + 1;
+            lList.add(rNum);
+            vList.add(rNum);
+            sList.add(rNum);
+        }
+
+        // Print out the list of numbers
+        System.out.println("Generated list: " + lList);
+
+        // Print out the LinkedList prefix products
+        System.out.println("Prefix LinkedList products:");
+        java.util.Iterator<Integer> linkedIterator = new PrefixProductListIterator(lList);
+        while (linkedIterator.hasNext()) {
+            System.out.println(linkedIterator.next());
+        }
+		
+        // Print out the Vector prefix products		
+        System.out.println("Prefix Vector products:");
+        java.util.Iterator<Integer> vectorIterator = new PrefixProductListIterator(vList);
+        while (vectorIterator.hasNext()) {
+            System.out.println(vectorIterator.next());
+        }	
+		
+        // Print out the Stack prefix products
+        System.out.println("Prefix Stack products:");
+        java.util.Iterator<Integer> stackIterator = new PrefixProductListIterator(sList);
+        while (stackIterator.hasNext()) {
+            System.out.println(stackIterator.next());
+        }
 		
     }
 }
