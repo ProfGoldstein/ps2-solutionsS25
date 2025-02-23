@@ -11,7 +11,12 @@ public class CollatzGenerator implements Iterator<Long> {
 	private long current;		   // The current number in the sequence
 	private boolean hasNext = true; // Flag to know if we are done
 
-
+	// Constructor
+	/**
+	* Construct a generator for the Collatz sequence starting with a given number
+	*
+	* @param n	The initial value in the sequence
+	*/
 	public CollatzGenerator(long n) {
 		this.current = n;
 	}
@@ -27,7 +32,13 @@ public class CollatzGenerator implements Iterator<Long> {
 		return hasNext;
 	}
 
-
+	/**
+	* Overrides the Iterator.next() method
+	* Calculates the next number in the Collatz sequence.  
+	* If the current number is  1, the hasNext flag is set to fales
+	*
+	* @return current	 The current number
+	*/
 	@Override
 	public Long next() {
 		long result = current;
@@ -43,7 +54,11 @@ public class CollatzGenerator implements Iterator<Long> {
 		return result;
 	}
 
-
+	/**
+	* main method to test the CollatzGenerator class.
+	*
+	* @param args[0] Initial value for the Collatz sequence
+	*/
 	public static void main(String[] args) {
 		long n = 0;
 		
